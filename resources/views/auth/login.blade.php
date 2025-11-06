@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
   <style type="text/css">
     body{
       background: #F8F9FA;
@@ -11,18 +12,17 @@
   </style>
 </head>
 <body>
-
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-primary" href="#">Berkah<br>Elektronik</a>
+  </div>
+</nav>
 <section class="bg-light py-3 py-md-5">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
         <div class="card border border-light-subtle rounded-3 shadow-sm mt-5">
           <div class="card-body p-3 p-md-4 p-xl-5">
-          <div class="text-center mb-3">
-            <a href="/">
-                <img src="{{ asset('images/logo_toko.jpg') }}" alt="Toko Kelontong" width="250">
-            </a>
-            </div>
 
             <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Sign in to your account</h2>
             <form method="POST" action="{{ route('login.post') }}">
