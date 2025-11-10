@@ -125,7 +125,6 @@
         <span class="me-3 fw-bold">Kategori</span>
         <input type="text" class="form-control form-control-sm me-3" style="width: 250px;" placeholder="Cari Elektronik">
         <i class="bi bi-cart3 me-3"></i>
-        <i class="bi bi-heart me-3"></i>
         <i class="bi bi-person"></i>
       </div>
     </div>
