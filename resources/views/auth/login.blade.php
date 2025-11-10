@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Toko Berkah Elektronik - Login</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
   <style>
     body {
@@ -12,7 +13,6 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Navbar */
     .navbar-brand {
       font-weight: 800;
       color: #2948ff !important;
@@ -20,18 +20,16 @@
       line-height: 1.1;
     }
 
-    /* Container utama */
     .login-section {
       display: flex;
       justify-content: center;
-      align-items: flex-start; /* buat posisi lebih ke atas */
-      min-height: 75vh; /* lebih proporsional */
+      align-items: flex-start;
+      min-height: 75vh;
       gap: 80px;
       flex-wrap: wrap;
-      padding-top: 60px; /* jarak dari atas */
+      padding-top: 60px;
     }
 
-    /* Teks kiri */
     .login-text {
       flex: 1;
       text-align: left;
@@ -39,14 +37,13 @@
       font-weight: 700;
       max-width: 400px;
       color: #000;
-      transform: translateY(-20px); /* dinaikkan sedikit */
+      transform: translateY(-20px);
     }
 
-    /* Form kanan */
     .login-form {
       flex: 1;
       max-width: 420px;
-      transform: translateY(-20px); /* dinaikkan juga */
+      transform: translateY(-20px);
     }
 
     .form-label {
@@ -90,7 +87,6 @@
       background-color: #f8f8f8;
     }
 
-    /* Responsif */
     @media (max-width: 992px) {
       .login-section {
         flex-direction: column;
@@ -137,34 +133,45 @@
     </div>
 
     <div class="login-form">
-      <form method="POST" action="#">
+      {{-- Form login --}}
+      <form method="POST" action="{{ route('login.post') }}">
+        @csrf
+        
+        {{-- Email / HP --}}
         <div class="mb-3">
           <label class="form-label">Alamat email atau nomor handphone yang terverifikasi <span class="text-danger">*</span></label>
-          <input type="text" class="form-control" placeholder="contoh@email.com atau 08123456789" required>
+          <input type="text" class="form-control" name="email" placeholder="contoh@email.com atau 08123456789" required value="{{ old('email') }}">
           <div class="form-text">Masukkan email atau no handphone</div>
+          @error('email')
+            <small class="text-danger">{{ $message }}</small>
+          @enderror
         </div>
 
+        {{-- Password --}}
         <div class="mb-3">
           <label class="form-label">Kata Sandi <span class="text-danger">*</span></label>
           <div class="input-group">
-            <input type="password" class="form-control" placeholder="Kata sandi" required>
+            <input type="password" class="form-control" name="password" placeholder="Kata sandi" required>
             <span class="input-group-text bg-white border-start-0"><i class="bi bi-eye"></i></span>
           </div>
           <div class="form-text"><a href="#" class="text-decoration-none text-secondary">Lupa kata sandi?</a></div>
+          @error('password')
+            <small class="text-danger">{{ $message }}</small>
+          @enderror
         </div>
 
+        {{-- Tombol login --}}
         <div class="d-grid mb-3">
           <button type="submit" class="btn btn-login">Masuk</button>
         </div>
 
+        {{-- Tombol daftar --}}
         <div class="d-grid">
-          <button type="button" class="btn btn-register">Daftar sekarang?</button>
+          <a href="{{ route('register') }}" class="btn btn-register text-decoration-none text-center">Daftar sekarang?</a>
         </div>
       </form>
     </div>
   </section>
 
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </body>
 </html>
